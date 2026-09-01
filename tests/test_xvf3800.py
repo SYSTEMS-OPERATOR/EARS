@@ -6,7 +6,7 @@ from collections.abc import Sequence
 
 import pytest
 
-from ears.xvf3800 import DeviceStatusError, XVF3800
+from ears.xvf3800 import XVF3800, DeviceStatusError
 
 
 class FakeDevice:
