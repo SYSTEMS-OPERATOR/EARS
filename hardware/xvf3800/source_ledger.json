@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "upstream_revision": "4b1ed0aefea83e51c328c735d7d9c3b953afae24",
+  "sources": [
+    {
+      "repository": "SOPHY-AGI/EARS-XVF3800",
+      "url": "https://github.com/SOPHY-AGI/EARS-XVF3800",
+      "paths": [
+        "README.md",
+        "python_control/respeaker_get_doa.py",
+        "python_control/xvf_host.py",
+        "host_control/README.md",
+        "host_control/jetson/dfu_cmds.yaml",
+        "host_control/jetson/transport_config.yaml",
+        "xmos_firmwares/dfu_guide.md"
+      ],
+      "use": "Protocol facts, USB identifiers, selected control-command metadata, Jetson transport values, and operational context.",
+      "treatment": "Reimplemented as a narrow read-only Python module with explicit errors, type hints, PEP 8 formatting, and safety boundaries.",
+      "license_status": "No license file was present in the inspected XVF3800 repository tree; retain provenance and review distribution status before external reuse."
+    },
+    {
+      "repository": "SOPHY-AGI/EARS-LIBRARY",
+      "url": "https://github.com/SOPHY-AGI/EARS-LIBRARY",
+      "upstream_revision": "905a5334ccdc2d474ad973caf6a23d05c65bbb25",
+      "use": "Inventory only.",
+      "treatment": "Not copied. The Python-2-era PocketSphinx, Bing API, GPIO, playback, and legacy ReSpeaker Core layers do not target the XVF3800 integration.",
+      "license_status": "Apache-2.0 license file present upstream."
+    }
+  ],
+  "exclusions": [
+    {
+      "class": "opaque_binaries",
+      "reason": "Cannot be meaningfully reviewed or PEP 8 documented; retrieve upstream when platform tooling is required."
+    },
+    {
+      "class": "firmware_images",
+      "reason": "Large device artifacts are versioned upstream; EARS records versions and procedures instead."
+    },
+    {
+      "class": "recovery_images",
+      "reason": "Destructive recovery material must not sit in the default research/control path."
+    },
+    {
+      "class": "legacy_cloud_speech_clients",
+      "reason": "Obsolete credentials and services are outside the local embodied-audio architecture."
+    }
+  ]
+}
