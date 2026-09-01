@@ -13,9 +13,10 @@ from __future__ import annotations
 import struct
 import sys
 import time
+from collections.abc import Sequence
 from dataclasses import dataclass
 from types import TracebackType
-from typing import Final, Literal, Protocol, Sequence, TypeAlias
+from typing import Final, Literal, Protocol, TypeAlias
 
 import usb.core
 import usb.util
@@ -194,7 +195,7 @@ class XVF3800:
         product_id: int = USB_PRODUCT_ID,
         timeout_ms: int = DEFAULT_TIMEOUT_MS,
         max_attempts: int = DEFAULT_MAX_ATTEMPTS,
-    ) -> "XVF3800":
+    ) -> XVF3800:
         """Discover the default XVF3800 and return a managed interface."""
         finder = usb.core.find
 
@@ -316,7 +317,7 @@ class XVF3800:
             usb.util.dispose_resources(self._device)
             self._closed = True
 
-    def __enter__(self) -> "XVF3800":
+    def __enter__(self) -> XVF3800:
         """Return this instance for context-manager use."""
         return self
 
