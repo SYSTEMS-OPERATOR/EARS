@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-01T00:00:00Z",
+  "policy": {
+    "purpose": "Canonical link ledger for EARS source material.",
+    "usage": "Research and hardware notes should cite stable reference IDs from this file. Direct URLs may be repeated only when portability requires it.",
+    "source_priority": [
+      "manufacturer documentation",
+      "official product repository",
+      "official wiki source",
+      "peer-reviewed paper",
+      "secondary source"
+    ],
+    "review_rule": "Record access date, revision when available, and any licensing or consistency concern."
+  },
+  "references": [
+    {
+      "id": "flex-official-repository",
+      "title": "reSpeaker Flex",
+      "url": "https://github.com/respeaker/reSpeaker_Flex",
+      "kind": "official_repository",
+      "publisher": "ReSpeaker",
+      "accessed_at": "2026-09-01",
+      "revision": "0225b7fbd331f307aa2b04a2f53b514c1adfaef4",
+      "relevance": [
+        "firmware inventory",
+        "Python control protocol",
+        "product provenance"
+      ],
+      "license_note": "No LICENSE file was present in the inspected repository tree."
+    },
+    {
+      "id": "flex-python-host",
+      "title": "Flex XVF3800 full Python host-control table",
+      "url": "https://github.com/respeaker/reSpeaker_Flex/blob/main/python_control/xvf_host.py",
+      "kind": "official_source",
+      "publisher": "ReSpeaker",
+      "accessed_at": "2026-09-01",
+      "blob_sha": "c0e08f24c60aaa78eac3533ea7761875a9cdfc3c",
+      "relevance": [
+        "vendor-control schema",
+        "USB discovery",
+        "command compatibility"
+      ]
+    },
+    {
+      "id": "flex-python-doa-demo",
+      "title": "Flex DoA demonstration script",
+      "url": "https://github.com/respeaker/reSpeaker_Flex/blob/main/python_control/respeaker_get_doa.py",
+      "kind": "official_source",
+      "publisher": "ReSpeaker",
+      "accessed_at": "2026-09-01",
+      "blob_sha": "86d6708d9c7f66a166b9f05763aed117fc3ba8b4",
+      "relevance": [
+        "DoA example",
+        "VAD example",
+        "USB discovery"
+      ],
+      "consistency_note": "Its DOA_VALUE count and byte reconstruction differ from the full host table; treat the full host table as canonical pending device capture."
+    },
+    {
+      "id": "flex-seeed-introduction",
+      "title": "Getting Started with reSpeaker Flex",
+      "url": "https://wiki.seeedstudio.com/respeaker_flex_introduction/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "firmware modes",
+        "safe mode",
+        "DFU boundaries",
+        "firmware selection"
+      ]
+    },
+    {
+      "id": "flex-seeed-xiao-introduction",
+      "title": "reSpeaker Flex with XIAO ESP32S3",
+      "url": "https://wiki.seeedstudio.com/respeaker_flex_xiao_introduction/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "mechanical architecture",
+        "FPC pinout",
+        "ESP32S3 wiring",
+        "microphone geometry",
+        "power and speaker path"
+      ]
+    },
+    {
+      "id": "flex-seeed-python-control",
+      "title": "reSpeaker Flex control with Python",
+      "url": "https://wiki.seeedstudio.com/respeaker_flex_python_control/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "Python requirements",
+        "DoA and VAD access",
+        "control examples"
+      ]
+    },
+    {
+      "id": "flex-seeed-udp-stream",
+      "title": "UDP streaming reSpeaker Flex with XIAO ESP32S3",
+      "url": "https://wiki.seeedstudio.com/respeaker_flex_xiao_udp_streaming/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "I2S capture",
+        "ESP32S3 transport",
+        "network audio example"
+      ]
+    },
+    {
+      "id": "xvf3800-official-repository",
+      "title": "reSpeaker XVF3800 USB 4-Mic Array",
+      "url": "https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY",
+      "kind": "official_repository",
+      "publisher": "ReSpeaker",
+      "accessed_at": "2026-09-01",
+      "revision": "a652fe79da3a292b25decc0e1e7f267d29bb0284",
+      "relevance": [
+        "baseline command table",
+        "firmware comparison",
+        "standard-board behavior"
+      ]
+    },
+    {
+      "id": "xvf3800-python-host",
+      "title": "Standard XVF3800 full Python host-control table",
+      "url": "https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/blob/master/python_control/xvf_host.py",
+      "kind": "official_source",
+      "publisher": "ReSpeaker",
+      "accessed_at": "2026-09-01",
+      "blob_sha": "a5f43338b927ab187e4b5bd0c5049ebc5f11a249",
+      "relevance": [
+        "cross-device protocol comparison"
+      ]
+    },
+    {
+      "id": "xmos-xvf3800-product",
+      "title": "XMOS VocalFusion XVF3800",
+      "url": "https://www.xmos.com/xvf3800/",
+      "kind": "manufacturer_documentation",
+      "publisher": "XMOS",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "processor capabilities",
+        "development resources",
+        "silicon status"
+      ]
+    },
+    {
+      "id": "xmos-xvf3800-documentation",
+      "title": "XMOS XVF3800 v3.2.1 documentation",
+      "url": "https://www.xmos.com/documentation/XM-014888-PC/html/",
+      "kind": "manufacturer_documentation",
+      "publisher": "XMOS",
+      "accessed_at": "2026-09-01",
+      "version": "3.2.1",
+      "relevance": [
+        "control commands",
+        "tuning",
+        "build system",
+        "DFU",
+        "acoustic design"
+      ]
+    },
+    {
+      "id": "sophy-xvf3800-snapshot",
+      "title": "SOPHY-AGI XVF3800 snapshot",
+      "url": "https://github.com/SOPHY-AGI/EARS-XVF3800",
+      "kind": "project_repository",
+      "publisher": "SOPHY-AGI",
+      "accessed_at": "2026-09-01",
+      "revision": "4b1ed0aefea83e51c328c735d7d9c3b953afae24",
+      "relevance": [
+        "historical project state",
+        "initial EARS provenance"
+      ]
+    },
+    {
+      "id": "sophy-respeaker-library-snapshot",
+      "title": "SOPHY-AGI legacy ReSpeaker Python library snapshot",
+      "url": "https://github.com/SOPHY-AGI/EARS-LIBRARY",
+      "kind": "project_repository",
+      "publisher": "SOPHY-AGI",
+      "accessed_at": "2026-09-01",
+      "revision": "905a5334ccdc2d474ad973caf6a23d05c65bbb25",
+      "relevance": [
+        "historical dependency inventory"
+      ],
+      "license_note": "Apache-2.0 license present upstream."
+    },
+    {
+      "id": "seeed-wiki-source-flex-xiao",
+      "title": "Seeed Wiki source: Flex with XIAO ESP32S3",
+      "url": "https://github.com/Seeed-Studio/wiki-documents/blob/docusaurus-version/sites/en/docs/Sensor/reSpeaker_flex/reSpeaker_flex_xiao.md",
+      "kind": "documentation_source",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-01",
+      "relevance": [
+        "auditable documentation history",
+        "hardware specification source"
+      ]
+    }
+  ]
+}
