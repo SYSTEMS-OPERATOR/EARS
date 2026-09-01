@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "physical": {
+    "array_options": [
+      {
+        "geometry": "circular",
+        "microphones": 4,
+        "spacing_mm": 44,
+        "nominal_coverage_degrees": 360
+      },
+      {
+        "geometry": "linear",
+        "microphones": 4,
+        "spacing_mm": 33,
+        "nominal_coverage_degrees": 180
+      }
+    ],
+    "interconnect": {
+      "type": "24-pin FPC",
+      "pitch_mm": 0.5,
+      "included_length_cm": 20
+    },
+    "exposed_array_capacity": {
+      "pdm_data_lines": 8,
+      "gpio_lines": 2,
+      "qualification": "Electrical exposure is documented; eight-microphone DSP support is not established."
+    },
+    "core": {
+      "processor": "XMOS XVF3800",
+      "codec": "TLV320AIC3104"
+    },
+    "outputs": {
+      "headphone": "3.5 mm",
+      "speaker": "up to 10 W into 4 ohms",
+      "external_power_v": 12
+    }
+  },
+  "supported_paths": [
+    {
+      "id": "jetson_usb",
+      "chain": [
+        "Flex circular or linear array",
+        "FPC",
+        "XVF3800 core",
+        "USB UAC 2.0 plus vendor control",
+        "Jetson AGX Orin"
+      ],
+      "recommendation": "Primary first-pass path.",
+      "radios_required": false,
+      "advantages": [
+        "lowest integration burden",
+        "current EARS control compatibility",
+        "audio and control on one cable"
+      ],
+      "open_tests": [
+        "USB profile product ID",
+        "channel map",
+        "bus-reset recovery",
+        "DoA update rate"
+      ]
+    },
+    {
+      "id": "esp32_i2s_i2c",
+      "chain": [
+        "Flex array",
+        "FPC",
+        "XVF3800 core",
+        "I2S audio plus I2C control",
+        "XIAO ESP32S3",
+        "hardwired uplink"
+      ],
+      "recommendation": "Secondary embedded path.",
+      "radios_required": false,
+      "advantages": [
+        "local control",
+        "possible audio pre-routing",
+        "Jetson isolation"
+      ],
+      "open_tests": [
+        "clock ownership",
+        "buffering latency",
+        "I2C telemetry cadence",
+        "hardwired uplink protocol"
+      ]
+    },
+    {
+      "id": "esp32_udp_reference",
+      "chain": [
+        "Flex array",
+        "XVF3800",
+        "I2S",
+        "XIAO ESP32S3",
+        "Wi-Fi UDP",
+        "receiver"
+      ],
+      "recommendation": "Reference implementation only; conflicts with preferred radios-off deployment.",
+      "radios_required": true,
+      "open_tests": [
+        "packet loss",
+        "clock drift",
+        "security boundary"
+      ]
+    }
+  ],
+  "embodiment_notes": [
+    "The split array/core layout is mechanically better suited to a head shell than a monolithic board.",
+    "Route and strain-relieve the 20 cm FPC away from actuators, high-current speaker wiring, and repeated joint flex.",
+    "Keep the microphone inlet side facing the intended sound field.",
+    "Treat circular and linear arrays as different calibrated geometries, not interchangeable passive plates.",
+    "A speaker close to the array changes AEC tuning; preserve repeatable speaker-array geometry."
+  ],
+  "reference_ids": [
+    "flex-seeed-xiao-introduction",
+    "flex-seeed-udp-stream",
+    "xmos-xvf3800-product"
+  ]
+}
