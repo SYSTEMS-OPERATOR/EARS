@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "note_id": "ears-hardware-generation-survey-2026-09-01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "scope": "Official XMOS, Seeed Studio, and ReSpeaker upstream sources checked for hardware or firmware newer than the SOPHY-AGI snapshots.",
+  "conclusion": {
+    "successor_found": false,
+    "summary": "XVF3800 remains XMOS's current four-microphone VocalFusion processor. The meaningful updates are newer ReSpeaker firmware, a modular XVF3800-based Flex board, and a separate XCORE-VOICE/XU316 two-microphone platform.",
+    "immediate_action": "Keep the first-pass USB telemetry code, test installed firmware, and evaluate upgrade to ReSpeaker USB 2.1.0 before enabling writes or DFU.",
+    "hardware_action": "Document reSpeaker Flex as the preferred mechanical alternative when array/core separation is valuable."
+  },
+  "firmware_delta": {
+    "source_repository": "respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY",
+    "source_revision": "a652fe79da3a292b25decc0e1e7f267d29bb0284",
+    "source_checked_at": "2026-09-01",
+    "sophy_snapshot": {
+      "repository": "SOPHY-AGI/EARS-XVF3800",
+      "revision": "4b1ed0aefea83e51c328c735d7d9c3b953afae24",
+      "newest_observed_usb": "2.0.8",
+      "newest_observed_i2s": "1.0.7-48k-test5"
+    },
+    "current_upstream": {
+      "usb": "2.1.0",
+      "i2s": "1.0.8",
+      "usb_changes": [
+        "2.0.9 restores saved fixed-beam settings correctly.",
+        "2.0.10 restores USB audio state after bus-speed changes and fixes Linux isochronous EOVERFLOW capture failures.",
+        "2.0.10 keeps DoA state current regardless of the active LED effect.",
+        "2.1.0 adds independent direct-output routing for USB channels 3 through 6.",
+        "2.1.0 adds runtime and persistent AIC3104 headphone and line-output level control."
+      ],
+      "i2s_changes": [
+        "1.0.8 aligns DOA_VALUE at command 18 and LED_RING_COLOR at command 19 with the USB interface.",
+        "1.0.8 keeps DoA and speech-detection telemetry current regardless of LED effect."
+      ]
+    },
+    "compatibility_effect": "The curated read-only USB DOA_VALUE implementation remains compatible. I2S integrations should require 1.0.8 or explicitly map older command IDs."
+  },
+  "candidates": [
+    {
+      "name": "reSpeaker Flex XVF3800",
+      "relationship": "Newer modular carrier and array architecture using the same XVF3800 processing generation.",
+      "strengths": [
+        "separate core and array",
+        "circular or linear four-mic boards",
+        "USB/I2S/I2C",
+        "optional XIAO ESP32S3",
+        "10 W speaker path"
+      ],
+      "disposition": "Evaluate for SOPHY head/chest packaging."
+    },
+    {
+      "name": "ReSpeaker Lite / XCORE-VOICE XU316",
+      "relationship": "Complementary two-microphone open voice platform, not an XVF3800 successor.",
+      "strengths": [
+        "open C SDK",
+        "local keyword and event detection",
+        "low-power voice-offload options",
+        "compact two-mic form"
+      ],
+      "limitations": [
+        "two microphones",
+        "shorter documented far-field range",
+        "different software and control architecture"
+      ],
+      "disposition": "Consider only for a secondary low-power wake/event node."
+    },
+    {
+      "name": "XMOS XK-VOICE-SQ66",
+      "relationship": "XVF3800 evaluation and custom-array development kit.",
+      "disposition": "Useful as a reference or firmware-development fixture, not a compact production ear."
+    }
+  ],
+  "sources": [
+    "https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/commit/a652fe79da3a292b25decc0e1e7f267d29bb0284",
+    "https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/blob/master/xmos_firmwares/usb/changelog.md",
+    "https://github.com/respeaker/reSpeaker_XVF3800_USB_4MIC_ARRAY/blob/master/xmos_firmwares/i2s/changelog.md",
+    "https://wiki.seeedstudio.com/respeaker_flex_xiao_introduction/",
+    "https://wiki.seeedstudio.com/xiao_respeaker/",
+    "https://www.xmos.com/xvf3800/",
+    "https://www.xmos.com/xcore-voice",
+    "https://www.xmos.com/xk-voice-sq66/"
+  ]
+}
