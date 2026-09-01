@@ -20,7 +20,9 @@ available upstream and are recorded in the source ledger.
 ## Layout
 
 ```text
-hardware/xvf3800/       Device profile and host transport configuration
+hardware/xvf3800/       Baseline device profile and provenance
+hardware/respeaker_flex/ Flex profile, compatibility, firmware, and topology
+references/sources.json  Canonical source-material link ledger
 research/notes/         Timestamped JSON research records
 scripts/                Small executable entry points
 src/ears/               Reviewed Python control code
@@ -45,5 +47,13 @@ Linux may require an appropriate udev rule or elevated USB permissions.
 ## Provenance
 
 Every imported or adapted artifact must retain its source repository, path,
-revision, and license status in a JSON ledger. See
-`hardware/xvf3800/source_ledger.json`.
+revision, and license status. Stable source IDs and links live in
+`references/sources.json`; hardware-specific lineage remains beside the device
+profile.
+
+## Flex compatibility
+
+The current read-only EARS control subset is source-compatible with reSpeaker
+Flex. Compatibility boundaries, firmware selection, DFU recovery, and proposed
+Jetson/ESP32 topologies are recorded under `hardware/respeaker_flex/`. Firmware
+images remain upstream and are never selected by version number alone.
