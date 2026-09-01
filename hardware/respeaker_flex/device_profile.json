@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "status": "candidate_for_embodied_integration",
+  "device": {
+    "manufacturer": "Seeed Studio",
+    "product_family": "reSpeaker Flex XVF3800",
+    "processor": "XMOS XVF3800",
+    "codec": "TLV320AIC3104",
+    "architecture": "Separate core and microphone-array boards joined by a 24-pin 0.5 mm FPC cable.",
+    "microphone_options": [
+      {
+        "geometry": "circular",
+        "count": 4,
+        "spacing_mm": 44,
+        "capture": "360-degree"
+      },
+      {
+        "geometry": "linear",
+        "count": 4,
+        "spacing_mm": 33,
+        "capture": "approximately 180-degree front-facing"
+      }
+    ],
+    "core_array_capacity": "FPC interface exposes up to eight microphone data lines; shipping array options documented here use four microphones.",
+    "host_interfaces": [
+      "USB UAC 2.0",
+      "I2S",
+      "I2C control"
+    ],
+    "usb_connectors": [
+      "USB-C",
+      "locking PH2.0"
+    ],
+    "embedded_host": "Optional or pre-soldered XIAO ESP32S3 with Wi-Fi and Bluetooth.",
+    "audio_output": [
+      "3.5 mm auxiliary output",
+      "JST speaker output up to 10 W at 4 ohms"
+    ],
+    "firmware_family": "XVF3800 3.2.1 base with product-specific USB and I2S variants"
+  },
+  "why_it_matters_for_sophy": [
+    "The microphone array can be positioned independently of the processor board.",
+    "Circular and linear geometries can share one core architecture.",
+    "The 20 cm FPC connection is easier to route through a head or enclosure than a monolithic board.",
+    "Exposed I2C and I2S support a hardwired radio-off sensor topology.",
+    "The ESP32S3 option can act as a local audio/control bridge without burdening the Jetson with every low-level event."
+  ],
+  "tradeoffs": [
+    "It does not replace XVF3800 silicon or inherently improve the core DSP generation.",
+    "A flexible cable improves placement but introduces signal-integrity, strain-relief, and serviceability requirements.",
+    "The published interface exposes eight microphone data lines, but supported firmware behavior for custom arrays must be verified before assuming an eight-microphone DSP configuration.",
+    "A 10 W speaker path and 12 V supply add thermal, acoustic-feedback, and power-domain considerations near microphones."
+  ],
+  "recommendation": {
+    "rank": "document_and_evaluate",
+    "preferred_variant": "Circular array for a head-mounted 360-degree listening node; linear array for a chest, panel, or directional second node.",
+    "migration_urgency": "Do not replace working XVF3800 USB hardware solely for DSP reasons. Prefer Flex when mechanical separation or embedded ESP32S3 control solves an actual packaging constraint."
+  },
+  "sources": [
+    "https://wiki.seeedstudio.com/respeaker_flex_xiao_introduction/",
+    "https://www.xmos.com/xvf3800/"
+  ]
+}
