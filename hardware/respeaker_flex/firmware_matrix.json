@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "repository_revision": "0225b7fbd331f307aa2b04a2f53b514c1adfaef4",
+  "current_observed_release": "1.0.3",
+  "naming": {
+    "geometry": {
+      "c": "circular",
+      "l": "linear"
+    },
+    "transport": {
+      "usb": "USB UAC 2.0 and USB control",
+      "i2s": "I2S audio and I2C control"
+    },
+    "warning": "Select firmware by transport, geometry, sample rate, and channel count. Never infer compatibility from version alone."
+  },
+  "profiles": [
+    {
+      "file": "respeaker_flex_usb_c16k2ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "circular",
+      "sample_rate_hz": 16000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_usb_c16k6ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "circular",
+      "sample_rate_hz": 16000,
+      "channels": 6
+    },
+    {
+      "file": "respeaker_flex_usb_c48k2ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "circular",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_usb_l16k2ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "linear",
+      "sample_rate_hz": 16000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_usb_l16k6ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "linear",
+      "sample_rate_hz": 16000,
+      "channels": 6
+    },
+    {
+      "file": "respeaker_flex_usb_l48k2ch_v1.0.3.bin",
+      "transport": "usb",
+      "geometry": "linear",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_i2s_c16k2ch_v1.0.3.bin",
+      "transport": "i2s",
+      "geometry": "circular",
+      "sample_rate_hz": 16000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_i2s_c48k2ch_v1.0.3.bin",
+      "transport": "i2s",
+      "geometry": "circular",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_i2s_l16k2ch_v1.0.3.bin",
+      "transport": "i2s",
+      "geometry": "linear",
+      "sample_rate_hz": 16000,
+      "channels": 2
+    },
+    {
+      "file": "respeaker_flex_i2s_l48k2ch_v1.0.3.bin",
+      "transport": "i2s",
+      "geometry": "linear",
+      "sample_rate_hz": 48000,
+      "channels": 2
+    }
+  ],
+  "dfu_boundaries": {
+    "usb_firmware": "USB DFU is supported; I2C DFU is not.",
+    "i2s_firmware": "I2C DFU is supported; USB DFU is not.",
+    "safe_mode": "Factory Safe Mode supports both USB and I2C DFU and is the recovery path for an unresponsive or incorrectly flashed runtime image.",
+    "operator_rule": "Record detected mode and exact target filename before any flash action."
+  },
+  "preferred_profiles_for_sophy": [
+    {
+      "use": "Jetson first-pass head array",
+      "file": "respeaker_flex_usb_c48k2ch_v1.0.3.bin",
+      "reason": "Circular geometry, direct USB integration, and 48 kHz stereo without ESP32 or radio dependency."
+    },
+    {
+      "use": "Jetson raw-array experiments",
+      "file": "respeaker_flex_usb_c16k6ch_v1.0.3.bin",
+      "reason": "Exposes the six-channel profile for processed plus microphone channels; verify channel ordering before capture."
+    },
+    {
+      "use": "Hardwired ESP32S3 bridge",
+      "file": "respeaker_flex_i2s_c48k2ch_v1.0.3.bin",
+      "reason": "Circular geometry with I2S audio and I2C control; radios can remain disabled."
+    }
+  ],
+  "reference_ids": [
+    "flex-official-repository",
+    "flex-seeed-introduction",
+    "flex-seeed-xiao-introduction"
+  ]
+}
