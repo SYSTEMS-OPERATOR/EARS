@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "subject": "Compatibility between EARS' curated XVF3800 interface and reSpeaker Flex.",
+  "result": {
+    "status": "read_only_control_path_compatible",
+    "confidence": "high_from_source_comparison_pending_physical_device_test",
+    "summary": "Flex uses the same XVF3800 vendor-control architecture. All commands used by the current EARS read-only module match the official Flex full host table."
+  },
+  "source_comparison": {
+    "flex_host_blob": "c0e08f24c60aaa78eac3533ea7761875a9cdfc3c",
+    "standard_host_blob": "a5f43338b927ab187e4b5bd0c5049ebc5f11a249",
+    "flex_command_count": 119,
+    "standard_command_count": 117,
+    "shared_commands": 115,
+    "shared_schema_mismatches": 0,
+    "flex_only": [
+      "AUDIO_MGR_OP_CH3",
+      "AUDIO_MGR_OP_CH4",
+      "AUDIO_MGR_OP_CH5",
+      "AUDIO_MGR_OP_CH6"
+    ],
+    "standard_only": [
+      "AIC3104_HP_LEVEL",
+      "AIC3104_LINEOUT_LEVEL"
+    ]
+  },
+  "ears_subset": [
+    {
+      "command": "VERSION",
+      "resource_id": 48,
+      "command_id": 0,
+      "values": 3,
+      "type": "uint8",
+      "flex_match": true
+    },
+    {
+      "command": "BUILD_MESSAGE",
+      "upstream_name": "BLD_MSG",
+      "resource_id": 48,
+      "command_id": 1,
+      "values": 50,
+      "type": "char",
+      "flex_match": true
+    },
+    {
+      "command": "BUILD_REPOSITORY_HASH",
+      "upstream_name": "BLD_REPO_HASH",
+      "resource_id": 48,
+      "command_id": 3,
+      "values": 40,
+      "type": "char",
+      "flex_match": true
+    },
+    {
+      "command": "AEC_AZIMUTH_VALUES",
+      "resource_id": 33,
+      "command_id": 75,
+      "values": 4,
+      "type": "radians",
+      "flex_match": true
+    },
+    {
+      "command": "AEC_SPEECH_ENERGY_VALUES",
+      "upstream_name": "AEC_SPENERGY_VALUES",
+      "resource_id": 33,
+      "command_id": 80,
+      "values": 4,
+      "type": "float",
+      "flex_match": true
+    },
+    {
+      "command": "AUDIO_SELECTED_AZIMUTHS",
+      "upstream_name": "AUDIO_MGR_SELECTED_AZIMUTHS",
+      "resource_id": 35,
+      "command_id": 11,
+      "values": 2,
+      "type": "radians",
+      "flex_match": true
+    },
+    {
+      "command": "DOA_VALUE",
+      "resource_id": 20,
+      "command_id": 18,
+      "values": 2,
+      "type": "uint16",
+      "flex_match": true
+    }
+  ],
+  "usb_discovery": {
+    "vendor_id_hex": "0x2886",
+    "common_product_id_hex": "0x001A",
+    "official_flex_behavior": "The current Flex scripts default to vendor-only discovery and allow an explicit PID because firmware profiles may expose different PIDs.",
+    "current_ears_behavior": "EARS requires product 0x001A.",
+    "compatibility_risk": "A non-0x001A Flex profile would not be discovered by the current EARS open() method.",
+    "recommended_change": "Later add enumeration by vendor with an explicit allowlist and product-string verification; never silently bind to the first XMOS device."
+  },
+  "upstream_inconsistency": {
+    "issue": "The compact Flex DoA demo declares DOA_VALUE as four uint16 values and manually rebuilds bytes, while the full host controller declares two uint16 values.",
+    "canonical_choice": "Use the full xvf_host.py table: two uint16 values, azimuth and speech flag.",
+    "validation_needed": "Capture one raw USB response from physical Flex hardware and record payload length and bytes."
+  },
+  "compatibility_boundaries": [
+    "Protocol compatibility does not make firmware images interchangeable.",
+    "Circular and linear arrays require geometry-specific firmware.",
+    "USB and I2S firmware have different DFU paths and transport behavior.",
+    "Do not expose SAVE_CONFIGURATION, CLEAR_CONFIGURATION, REBOOT, or DFU through the passive EARS telemetry class.",
+    "Six-channel USB mode changes the audio stream shape but not the selected passive control commands."
+  ],
+  "reference_ids": [
+    "flex-official-repository",
+    "flex-python-host",
+    "flex-python-doa-demo",
+    "flex-seeed-python-control",
+    "xvf3800-python-host",
+    "xmos-xvf3800-documentation"
+  ]
+}
