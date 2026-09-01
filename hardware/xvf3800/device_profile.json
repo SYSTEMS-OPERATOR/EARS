@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "recorded_at": "2026-09-01T00:00:00Z",
+  "device": {
+    "manufacturer": "Seeed Studio",
+    "product": "reSpeaker XVF3800 USB 4-Mic Array",
+    "processor": "XMOS XVF3800",
+    "microphone_count": 4,
+    "array_geometry": "circular",
+    "usb": {
+      "vendor_id_hex": "0x2886",
+      "product_id_hex": "0x001A"
+    },
+    "nominal_capture_range_meters": 5,
+    "documented_capabilities": [
+      "acoustic_echo_cancellation",
+      "automatic_gain_control",
+      "direction_of_arrival",
+      "beamforming",
+      "voice_activity_detection",
+      "noise_suppression",
+      "dereverberation"
+    ],
+    "host_targets": [
+      "Jetson Linux",
+      "Linux x86_64",
+      "Raspberry Pi 64-bit",
+      "macOS arm64",
+      "Windows"
+    ],
+    "jetson_transport": {
+      "i2c_address_hex": "0x2C",
+      "spi_mode": 0
+    }
+  },
+  "firmware_observed_in_source": {
+    "usb": [
+      "2.0.5",
+      "2.0.6",
+      "2.0.7",
+      "2.0.8-6channel"
+    ],
+    "i2s": [
+      "1.0.4",
+      "1.0.5-48k",
+      "1.0.7-48k-test5"
+    ],
+    "policy": "Record only. Firmware binaries are not copied into EARS."
+  },
+  "integration_target": {
+    "compute": "NVIDIA Jetson AGX Orin",
+    "preferred_transport": "USB for first-pass telemetry",
+    "first_pass_features": [
+      "firmware_identification",
+      "direction_of_arrival",
+      "speech_presence",
+      "beam_telemetry"
+    ],
+    "deferred_features": [
+      "configuration_writes",
+      "flash_persistence",
+      "device_firmware_update",
+      "I2C_control"
+    ]
+  },
+  "verification": {
+    "hardware_tested": false,
+    "source_reviewed": true,
+    "next_actions": [
+      "Run read_doa.py on the physical array.",
+      "Record installed firmware version.",
+      "Measure stable DoA update rate and dropout behavior."
+    ]
+  }
+}
