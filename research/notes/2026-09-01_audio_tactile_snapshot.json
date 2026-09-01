@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "note_id": "audio-tactile-snapshot-2026-09-01",
+  "created_at": "2026-09-01T00:00:00Z",
+  "status": "working_research_snapshot",
+  "research_question": "How should one event be rendered differently for hearing and touch, then recombined as a coherent percept?",
+  "synthesis": {
+    "auditory_channel": [
+      "fine_spectrum",
+      "harmony",
+      "pitch",
+      "localization"
+    ],
+    "tactile_channel": [
+      "onset",
+      "attack",
+      "temporal_envelope",
+      "periodicity",
+      "roughness",
+      "intensity",
+      "coarse_pitch"
+    ],
+    "engineering_hypothesis": "Do not send the audio mix unchanged to body transducers. Derive a tactile mix whose encoding prioritizes temporal structure, contact mechanics, and receptor recruitment.",
+    "system_model": "event -> auditory renderer + tactile renderer -> cross-modal temporal alignment -> unified percept"
+  },
+  "findings": [
+    {
+      "id": "tactile_missing_fundamental",
+      "claim": "Tactile pitch judgments can follow temporal periodicity even when the corresponding fundamental component is absent.",
+      "implication": "Envelope periodicity may be a stronger tactile carrier than fine spectral detail.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/41973576/",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    },
+    {
+      "id": "tactile_timbre_features",
+      "claim": "Touch can discriminate multiple temporal and spectral timbre features, with particular strength for temporal structure.",
+      "implication": "Encode attack time and amplitude modulation explicitly in a tactile renderer.",
+      "source": "https://www.nature.com/articles/s41598-025-21908-4",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    },
+    {
+      "id": "speech_envelope_crossmodal",
+      "claim": "A fingertip rendering of speech-envelope timing can alter activity in auditory speech-processing regions during speech-in-noise tasks.",
+      "implication": "Auditory cortex may integrate temporally structured information delivered through touch.",
+      "source": "https://www.nature.com/articles/s41598-025-07718-8",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    },
+    {
+      "id": "mechanoreceptor_population",
+      "claim": "Perceived tactile intensity may track the spatial population of recruited afferents better than only the local peak beneath an actuator.",
+      "implication": "Actuator spacing, preload, contact material, anatomy, and mechanical coupling belong in the signal model.",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/42329899/",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    },
+    {
+      "id": "low_frequency_context",
+      "claim": "Low-frequency physiological responses depend on interactions among frequency, acoustic field, phase, duration, and body geometry rather than a simple one-frequency/one-effect map.",
+      "implication": "Reject isolated magic-frequency claims; log the complete physical exposure geometry.",
+      "source": "https://www.frontiersin.org/journals/cognition/articles/10.3389/fcogn.2026.1806052/full",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    },
+    {
+      "id": "semantic_haptic_encoding",
+      "claim": "An experimental audio-to-haptic pipeline used both acoustic and semantic information to choose tactile output.",
+      "implication": "Meaning can become an input to a tactile rendering policy rather than remaining outside the signal path.",
+      "source": "https://www.sciencedirect.com/science/article/pii/S0141938226001514",
+      "verification_status": "source_identified_recheck_methods_before_design"
+    }
+  ],
+  "design_constraints": [
+    "Preserve raw audio and derived tactile features as separate data streams.",
+    "Timestamp every modality against one monotonic clock.",
+    "Record actuator, mounting, preload, body site, posture, and room geometry.",
+    "Treat subjective and physiological outcomes as measurements, not promised effects.",
+    "Keep experimental output amplitude inside independently established hardware and human-safety limits."
+  ],
+  "next_experiments": [
+    {
+      "name": "envelope_first_tactile_render",
+      "input": "music or speech",
+      "comparison": [
+        "low-pass audio mirror",
+        "onset-and-envelope tactile render"
+      ],
+      "measurements": [
+        "timing_alignment",
+        "recognition_or_tracking",
+        "comfort",
+        "subjective_coherence"
+      ]
+    },
+    {
+      "name": "doa_to_body_mapping",
+      "input": "XVF3800 azimuth plus speech presence",
+      "comparison": [
+        "no tactile cue",
+        "spatial tactile cue"
+      ],
+      "measurements": [
+        "localization_error_degrees",
+        "response_time",
+        "adaptation_over_trials"
+      ]
+    }
+  ]
+}
