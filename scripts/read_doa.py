@@ -8,7 +8,7 @@ import json
 import time
 from datetime import datetime, timezone
 
-from ears import DeviceNotFoundError, XVF3800, XVF3800Error
+from ears import XVF3800, DeviceNotFoundError, XVF3800Error
 
 
 def parse_args() -> argparse.Namespace:
