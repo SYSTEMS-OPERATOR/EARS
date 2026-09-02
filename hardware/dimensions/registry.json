@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-02T00:00:00Z",
+  "units": "millimetres",
+  "measurement_policy": {
+    "exact": "Published by the manufacturer or present in an official design file.",
+    "nominal": "Published nominal dimension; manufacturing tolerance is not stated.",
+    "unresolved": "Not published in the inspected primary sources; do not infer from photographs."
+  },
+  "units_catalogue": [
+    {
+      "id": "respeaker-flex-circular-array",
+      "name": "reSpeaker Flex circular 4-microphone array",
+      "dimensions": {
+        "board_diameter": {"value": 73.0, "status": "nominal", "source_ids": ["flex-seeed-launch-article"]},
+        "microphone_spacing": {"value": 44.0, "status": "nominal", "source_ids": ["flex-seeed-launch-article", "flex-seeed-introduction"], "note": "The primary text does not define which microphone centres form the quoted spacing; diagrams therefore do not invent centre coordinates."},
+        "mounting_holes": {"count": 3, "fastener": "M3", "status": "nominal", "source_ids": ["flex-seeed-introduction"]},
+        "board_thickness": {"status": "unresolved"},
+        "mounting_hole_coordinates": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/flex_arrays.svg"
+    },
+    {
+      "id": "respeaker-flex-linear-array",
+      "name": "reSpeaker Flex linear 4-microphone array",
+      "dimensions": {
+        "board_length": {"value": 110.0, "status": "nominal", "source_ids": ["flex-seeed-launch-article"]},
+        "microphone_spacing": {"value": 33.0, "status": "nominal", "source_ids": ["flex-seeed-launch-article", "flex-seeed-introduction"], "note": "Published as spacing for the four-microphone linear array; the drawing shows the customary adjacent-centre interpretation but labels it nominal."},
+        "mounting_holes": {"count": 2, "fastener": "M3", "status": "nominal", "source_ids": ["flex-seeed-introduction"]},
+        "board_width": {"status": "unresolved"},
+        "board_thickness": {"status": "unresolved"},
+        "mounting_hole_coordinates": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/flex_arrays.svg"
+    },
+    {
+      "id": "respeaker-flex-core",
+      "name": "reSpeaker Flex XVF3800 core board",
+      "dimensions": {
+        "mounting_holes": {"count": 4, "fastener": "M3", "status": "nominal", "source_ids": ["flex-seeed-introduction"]},
+        "board_length": {"status": "unresolved"},
+        "board_width": {"status": "unresolved"},
+        "board_thickness": {"status": "unresolved"},
+        "mounting_hole_coordinates": {"status": "unresolved"}
+      },
+      "diagram": null,
+      "note": "An envelope diagram is intentionally withheld until Seeed publishes CAD or a dimensioned drawing."
+    },
+    {
+      "id": "respeaker-flex-fpc",
+      "name": "Included Flex microphone-array FPC cable",
+      "dimensions": {
+        "length": {"value": 200.0, "status": "nominal", "source_ids": ["flex-seeed-introduction"]},
+        "contact_pitch": {"value": 0.5, "status": "nominal", "source_ids": ["flex-seeed-introduction"]},
+        "contact_count": {"value": 24, "status": "exact", "source_ids": ["flex-seeed-introduction"]},
+        "cable_width": {"status": "unresolved"},
+        "exposed_contact_length": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/flex_arrays.svg"
+    },
+    {
+      "id": "seeed-xiao-esp32s3",
+      "name": "Seeed Studio XIAO ESP32S3 base board",
+      "dimensions": {
+        "length": {"value": 21.0, "status": "nominal", "source_ids": ["seeed-xiao-esp32s3-wiki"]},
+        "width": {"value": 17.8, "status": "nominal", "source_ids": ["seeed-xiao-esp32s3-wiki"]},
+        "height": {"status": "unresolved", "note": "The 15 mm figure in the comparison table applies to the Sense variant with expansion board, not this base board."}
+      },
+      "diagram": "diagrams/rectangular_units.svg"
+    },
+    {
+      "id": "respeaker-xvf3800-usb-4mic",
+      "name": "reSpeaker XMOS XVF3800 USB 4-Mic Array board",
+      "dimensions": {
+        "length": {"value": 86.0, "status": "nominal", "source_ids": ["seeed-xvf3800-product-page"]},
+        "width": {"value": 35.0, "status": "nominal", "source_ids": ["seeed-xvf3800-product-page"]},
+        "height": {"status": "unresolved"},
+        "microphone_coordinates": {"status": "unresolved"},
+        "mounting_hole_coordinates": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/rectangular_units.svg"
+    },
+    {
+      "id": "respeaker-lite",
+      "name": "reSpeaker Lite board",
+      "dimensions": {
+        "length": {"value": 86.0, "status": "nominal", "source_ids": ["seeed-respeaker-lite-wiki"]},
+        "width": {"value": 35.0, "status": "nominal", "source_ids": ["seeed-respeaker-lite-wiki"]},
+        "height": {"status": "unresolved"},
+        "microphone_spacing": {"status": "unresolved"},
+        "mounting_hole_coordinates": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/rectangular_units.svg"
+    },
+    {
+      "id": "xmos-xk-voice-sq66-acoustic-geometries",
+      "name": "XMOS XK-VOICE-SQ66 reference microphone geometries",
+      "dimensions": {
+        "linear_microphone_centres_x": {"values": [-49.95, -16.65, 16.65, 49.95], "y": 0.0, "z": 0.0, "status": "exact", "source_ids": ["xmos-xvf3800-tuning"]},
+        "linear_adjacent_spacing": {"value": 33.3, "status": "exact", "source_ids": ["xmos-xvf3800-tuning"]},
+        "linear_total_span": {"value": 99.9, "status": "exact", "source_ids": ["xmos-xvf3800-tuning"]},
+        "square_microphone_centres": {"values": [[33.3, -33.3], [33.3, 33.3], [-33.3, 33.3], [-33.3, -33.3]], "z": 0.0, "status": "exact", "source_ids": ["xmos-xvf3800-tuning"]},
+        "square_side": {"value": 66.6, "status": "exact", "source_ids": ["xmos-xvf3800-tuning"], "note": "XMOS markets this as a nominal 66 mm square geometry."},
+        "processor_board_envelope": {"status": "unresolved"}
+      },
+      "diagram": "diagrams/xk_voice_sq66_geometries.svg"
+    },
+    {
+      "id": "xmos-xvf3800-qf60-package",
+      "name": "XMOS XVF3800 60-pin QFN package",
+      "dimensions": {
+        "body_length_D": {"value": 7.0, "status": "exact", "basis": "BSC", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "body_width_E": {"value": 7.0, "status": "exact", "basis": "BSC", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "height_A": {"min": 0.8, "nominal": 0.85, "max": 0.9, "status": "exact", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "lead_pitch_e": {"value": 0.4, "status": "exact", "basis": "BSC", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "lead_width_b": {"min": 0.15, "nominal": 0.2, "max": 0.25, "status": "exact", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "lead_length_L": {"min": 0.35, "nominal": 0.4, "max": 0.45, "status": "exact", "source_ids": ["xmos-xvf3800-datasheet-package"]},
+        "exposed_pad_D2_E2_D3_E3": {"min": 3.55, "nominal": 3.6, "max": 3.65, "status": "exact", "source_ids": ["xmos-xvf3800-datasheet-package"]}
+      },
+      "diagram": "diagrams/xvf3800_qfn_package.svg"
+    }
+  ],
+  "open_mechanical_requests": [
+    "Obtain official Flex core-board outline and mounting-hole coordinate drawing.",
+    "Obtain full Flex circular and linear PCB fabrication drawings, including thickness and hole coordinates.",
+    "Obtain current reSpeaker XVF3800 and Lite board CAD for component and hole coordinates.",
+    "Extract the XK-VOICE-SQ66 processor-board envelope from XMOS design files under its supplied licence."
+  ]
+}
