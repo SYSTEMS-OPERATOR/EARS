@@ -57,3 +57,11 @@ The current read-only EARS control subset is source-compatible with reSpeaker
 Flex. Compatibility boundaries, firmware selection, DFU recovery, and proposed
 Jetson/ESP32 topologies are recorded under `hardware/respeaker_flex/`. Firmware
 images remain upstream and are never selected by version number alone.
+
+## Dimensional references
+
+Machine-readable mechanical facts live in `hardware/dimensions/registry.json`.
+The companion SVGs under `hardware/dimensions/diagrams/` show only published
+envelopes and acoustic coordinates. Unknown board widths, thicknesses, component
+positions, and mounting-hole coordinates remain explicitly unresolved rather
+than being estimated from product photographs.
