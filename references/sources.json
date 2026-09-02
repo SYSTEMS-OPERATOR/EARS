@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-01T00:00:00Z",
+  "updated_at": "2026-09-02T00:00:00Z",
   "policy": {
     "purpose": "Canonical link ledger for EARS source material.",
     "usage": "Research and hardware notes should cite stable reference IDs from this file. Direct URLs may be repeated only when portability requires it.",
@@ -205,6 +205,97 @@
         "auditable documentation history",
         "hardware specification source"
       ]
+    },
+    {
+      "id": "flex-seeed-launch-article",
+      "title": "Introducing reSpeaker Flex: The Smart Ear for Robotics and Embedded AI",
+      "url": "https://www.seeedstudio.com/blog/2026/04/09/introducing-respeaker-flex-the-smart-ear-for-robotics-and-embedded-ai/",
+      "kind": "manufacturer_article",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-02",
+      "relevance": [
+        "circular array diameter",
+        "linear array length",
+        "microphone spacing",
+        "hardware-generation check"
+      ]
+    },
+    {
+      "id": "seeed-xiao-esp32s3-wiki",
+      "title": "Getting Started with Seeed Studio XIAO ESP32-S3 Series",
+      "url": "https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-02",
+      "relevance": [
+        "XIAO ESP32S3 board envelope",
+        "variant dimension distinction"
+      ]
+    },
+    {
+      "id": "seeed-xvf3800-product-page",
+      "title": "reSpeaker XMOS XVF3800 4-Mic Array",
+      "url": "https://www.seeed.cc/product/respeaker-mic-array-v2-0",
+      "kind": "manufacturer_product_page",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-02",
+      "relevance": [
+        "current XVF3800 board envelope",
+        "official 3D-file links"
+      ],
+      "consistency_note": "The legacy-looking URL slug serves the current XVF3800 product content; preserve the page title and access date when auditing."
+    },
+    {
+      "id": "seeed-respeaker-lite-wiki",
+      "title": "Introduction to reSpeaker Lite",
+      "url": "https://wiki.seeedstudio.com/reSpeaker_usb_v3/",
+      "kind": "manufacturer_documentation",
+      "publisher": "Seeed Studio",
+      "accessed_at": "2026-09-02",
+      "relevance": [
+        "reSpeaker Lite board envelope"
+      ]
+    },
+    {
+      "id": "xmos-xvf3800-tuning",
+      "title": "XVF3800 tuning: reference microphone geometries",
+      "url": "https://www.xmos.com/documentation/XM-014888-PC/html/modules/fwk_xvf/doc/user_guide/04_tuning_the_application.html",
+      "kind": "manufacturer_documentation",
+      "publisher": "XMOS",
+      "accessed_at": "2026-09-02",
+      "version": "3.2.1",
+      "relevance": [
+        "exact XK-VOICE-SQ66 microphone coordinates",
+        "linear and square acoustic geometry"
+      ]
+    },
+    {
+      "id": "xmos-xvf3800-datasheet-package",
+      "title": "XVF3800 datasheet: package information",
+      "url": "https://www.xmos.com/documentation/XM-014888-PC/html/modules/fwk_xvf/doc/datasheet/08_package_information.html",
+      "kind": "manufacturer_datasheet",
+      "publisher": "XMOS",
+      "accessed_at": "2026-09-02",
+      "version": "datasheet release 7 (2026-03-17)",
+      "relevance": [
+        "QF60 package body",
+        "lead dimensions",
+        "exposed-pad dimensions"
+      ]
+    },
+    {
+      "id": "xmos-xk-voice-sq66-design-files",
+      "title": "XK-VOICE-SQ66 Design Files",
+      "url": "https://www.xmos.com/file/xk-voice-sq66",
+      "kind": "official_design_files",
+      "publisher": "XMOS",
+      "accessed_at": "2026-09-02",
+      "version": "1V1",
+      "relevance": [
+        "processor-board CAD acquisition",
+        "mechanical verification"
+      ],
+      "license_note": "Download archive includes its own licence; review before copying design artifacts into EARS."
     }
   ]
 }
