@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "id": "2026-09-02-dimensional-audit",
+  "created_at": "2026-09-02T00:00:00Z",
+  "title": "Mechanical dimension and current-version audit",
+  "scope": [
+    "reSpeaker Flex core and array modules",
+    "reSpeaker XVF3800 USB 4-Mic Array",
+    "reSpeaker Lite",
+    "Seeed Studio XIAO ESP32S3",
+    "XMOS XK-VOICE-SQ66",
+    "XMOS XVF3800 package"
+  ],
+  "outcome": {
+    "machine_readable_registry": "hardware/dimensions/registry.json",
+    "diagram_directory": "hardware/dimensions/diagrams",
+    "catalogued_units": 9,
+    "method": "Manufacturer-published dimensions and official firmware coordinates only; photographs were not used for measurement."
+  },
+  "version_follow_up": [
+    {
+      "unit": "reSpeaker Flex",
+      "finding": "The official Wiki source was updated on 2026-08-07 and remains the current integration documentation inspected in this pass.",
+      "compatibility_boundary": "Flex documentation names XIAO ESP32S3. It does not certify the newer XIAO ESP32S3 Plus as a drop-in Flex host even though the published 21 x 17.8 mm envelope matches.",
+      "source_ids": ["flex-seeed-introduction", "seeed-xiao-esp32s3-wiki"]
+    },
+    {
+      "unit": "XMOS XVF3800",
+      "finding": "The current datasheet is release 7 dated 2026-03-17 and adds XVF3800-QF60B-I. Package dimensions remain QF60, 7 x 7 mm, 0.4 mm pitch.",
+      "source_ids": ["xmos-xvf3800-datasheet-package", "xmos-xvf3800-product"]
+    },
+    {
+      "unit": "XK-VOICE-SQ66",
+      "finding": "The public hardware design archive remains version 1V1 dated 2023-06-28.",
+      "source_ids": ["xmos-xk-voice-sq66-design-files"]
+    }
+  ],
+  "unresolved": [
+    "Flex core-board outline and all Flex mounting-hole coordinates",
+    "Flex linear-array width and both array thicknesses",
+    "Current XVF3800 and Lite component/microphone/mounting-hole coordinates",
+    "XK-VOICE-SQ66 processor-board envelope pending licensed design-file extraction"
+  ],
+  "next_actions": [
+    "Request or download official Flex fabrication/CAD files when Seeed publishes them.",
+    "Review the XK-VOICE-SQ66 design archive licence and extract its mechanical layer.",
+    "Confirm XIAO ESP32S3 Plus electrical and pad compatibility before documenting it as a Flex substitute."
+  ]
+}
