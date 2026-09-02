@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">reSpeaker Flex published dimensions</title>
+  <desc id="desc">Dimensioned schematic of the circular and linear microphone array envelopes and included FPC cable. Unknown dimensions are explicitly identified.</desc>
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M8 0 0 4 8 8Z" fill="#82d4ff"/></marker></defs>
+  <rect width="1200" height="520" fill="#0b1220"/><g font-family="Inter,Arial,sans-serif" fill="#e8f1ff">
+  <text x="50" y="48" font-size="26" font-weight="700">reSpeaker Flex — published mechanical dimensions</text>
+  <text x="50" y="76" font-size="14" fill="#9fb2c8">Manufacturer dimensions; no dimensions inferred from photographs. Units: mm.</text>
+  <g transform="translate(70 115)"><text x="146" y="0" font-size="18" font-weight="700" text-anchor="middle">Circular C4 array</text>
+    <circle cx="146" cy="170" r="146" fill="#162338" stroke="#82d4ff" stroke-width="3"/>
+    <g fill="#ffcb6b" stroke="#0b1220" stroke-width="3"><circle cx="146" cy="82" r="9"/><circle cx="234" cy="170" r="9"/><circle cx="146" cy="258" r="9"/><circle cx="58" cy="170" r="9"/></g>
+    <line x1="0" y1="335" x2="292" y2="335" stroke="#82d4ff" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="146" y="362" text-anchor="middle" font-size="16">Ø73 board envelope</text>
+    <line x1="146" y1="82" x2="146" y2="258" stroke="#ffcb6b" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/><rect x="154" y="153" width="144" height="34" rx="6" fill="#0b1220"/><text x="162" y="176" font-size="14" fill="#ffcb6b">44 published spacing*</text>
+  </g>
+  <g transform="translate(445 115)"><text x="275" y="0" font-size="18" font-weight="700" text-anchor="middle">Linear L4 array</text>
+    <rect x="0" y="125" width="550" height="90" rx="12" fill="#162338" stroke="#82d4ff" stroke-width="3" stroke-dasharray="550 90 550 90"/>
+    <g fill="#ffcb6b" stroke="#0b1220" stroke-width="3"><circle cx="27.5" cy="170" r="9"/><circle cx="192.5" cy="170" r="9"/><circle cx="357.5" cy="170" r="9"/><circle cx="522.5" cy="170" r="9"/></g>
+    <g stroke="#ffcb6b" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"><line x1="27.5" y1="105" x2="192.5" y2="105"/><line x1="192.5" y1="105" x2="357.5" y2="105"/><line x1="357.5" y1="105" x2="522.5" y2="105"/></g><text x="275" y="90" text-anchor="middle" font-size="14" fill="#ffcb6b">33 nominal adjacent spacing</text>
+    <line x1="0" y1="255" x2="550" y2="255" stroke="#82d4ff" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="275" y="282" text-anchor="middle" font-size="16">110 board length</text><text x="275" y="315" text-anchor="middle" font-size="14" fill="#ff8a80">Board width and hole coordinates: unresolved</text>
+  </g>
+  <g transform="translate(445 445)"><line x1="0" y1="0" x2="550" y2="0" stroke="#c3a6ff" stroke-width="9"/><line x1="0" y1="22" x2="550" y2="22" stroke="#82d4ff" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/><text x="275" y="50" text-anchor="middle" font-size="14">Included FPC: 200 nominal length · 24 contacts · 0.5 pitch</text></g>
+  <text x="50" y="500" font-size="12" fill="#9fb2c8">* The manufacturer does not state which circular microphone centres define “44 mm spacing”; drawn as an annotation, not a recovered coordinate set.</text></g>
+</svg>
